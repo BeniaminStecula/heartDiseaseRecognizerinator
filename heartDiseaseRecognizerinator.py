@@ -77,11 +77,12 @@ def heartDiseaseRecognizeinator(age, sex, cp, trestbps, chol, fbs, restecg, thal
     resultsSum[1] /= resultsNumbers[1]  # making average
     alternativeResults = resultsSum[1] / (resultsSum[0] + resultsSum[1]) * 100
     print("Results Alternative:\t" + str(alternativeResults))
-    if resultsSum[0] > resultsSum[1]:
-        print("Results Average:\t" + str(resultsSum[0]) + ",\t" + str(resultsSum[1]))
+    # if resultsSum[0] > resultsSum[1]:
+    if alternativeResults < 47:
+        print("Results Average:\t" + str(resultsSum[0]) + ",\t" + str(resultsSum[1]) + ",\t0")
         return 0
     else:
-        print("Results Average:\t" + str(resultsSum[0]) + ",\t" + str(resultsSum[1]))
+        print("Results Average:\t" + str(resultsSum[0]) + ",\t" + str(resultsSum[1]) + ",\t1")
         return 1
 
 
