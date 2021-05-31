@@ -4,8 +4,8 @@ import math
 dataPath = "heart.csv"
 mins, maxs, averages, sigma = [], [], [], 0.1
 # averages is currently not used but it's ready for further development
-mins = [29.0, 0.0, 0.0, 94.0, 126.0, 0.0, 0.0, 71.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-maxs = [77.0, 1.0, 3.0, 200.0, 564.0, 1.0, 2.0, 202.0, 1.0, 6.2, 2.0, 4.0, 3.0, 1.0]
+# mins = [29.0, 0.0, 0.0, 94.0, 126.0, 0.0, 0.0, 71.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+# maxs = [77.0, 1.0, 3.0, 200.0, 564.0, 1.0, 2.0, 202.0, 1.0, 6.2, 2.0, 4.0, 3.0, 1.0]
 theDataRow = []
 alternativeResults = 0
 
@@ -55,13 +55,13 @@ def normalize():
     return
 
 
-def heartDiseaseRecognizeinator(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
+def heartDiseaseRecognize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
     # do sth
     global theDataRow
     theDataRow = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
     global alternativeResults
 
-    # normalize()
+    normalize()
 
     resultsSum = [0, 0]  # sum of results/classification probability
     resultsNumbers = [0, 0]  # the number of matching results (number of zeroes and ones instances respectively)
@@ -86,8 +86,8 @@ def heartDiseaseRecognizeinator(age, sex, cp, trestbps, chol, fbs, restecg, thal
         return 1
 
 
-def heartDiseaseBiggerizeinator(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal,
-                                target):
+def heartDiseaseBiggerize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal,
+                          target):
     # add new row with result
     with open(dataPath, 'a', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',')
@@ -99,9 +99,9 @@ def heartDiseaseBiggerizeinator(age, sex, cp, trestbps, chol, fbs, restecg, thal
 def testOne(target):
     global theDataRow
 
-    result = heartDiseaseRecognizeinator(theDataRow[0], theDataRow[1], theDataRow[2], theDataRow[3], theDataRow[4],
-                                         theDataRow[5], theDataRow[6], theDataRow[7], theDataRow[8], theDataRow[9],
-                                         theDataRow[10], theDataRow[11], theDataRow[12]) # without target value
+    result = heartDiseaseRecognize(theDataRow[0], theDataRow[1], theDataRow[2], theDataRow[3], theDataRow[4],
+                                   theDataRow[5], theDataRow[6], theDataRow[7], theDataRow[8], theDataRow[9],
+                                   theDataRow[10], theDataRow[11], theDataRow[12]) # without target value
     index = 0
     if target == '1': index += 2
     # if result == 1: index += 1
