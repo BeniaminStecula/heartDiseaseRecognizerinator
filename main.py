@@ -29,7 +29,7 @@ def check():
                                        ca, thal)
 
 
-@app.route('/getcategories', methods=['GET'])
+@app.route('/add', methods=['GET'])
 def add():
 
     age = request.args.get('age')
