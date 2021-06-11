@@ -12,7 +12,6 @@ alternativeResults = 0
 
 def classify(row):
     """
-
     :param (one row from a database to compare the New Data to) row:
     :return (similarity with the given database row) result:
     """
@@ -56,7 +55,6 @@ def normalize():
 
 
 def heartDiseaseRecognize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
-    # do sth
     global theDataRow
     theDataRow = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
     global alternativeResults
