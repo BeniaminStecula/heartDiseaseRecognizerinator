@@ -1,6 +1,6 @@
 import flask
 from flask import request
-# from flask import jsonify
+from flask import jsonify
 from heartDiseaseRecognizerinator import heartDiseaseRecognize
 from heartDiseaseRecognizerinator import heartDiseaseBiggerize
 
@@ -25,8 +25,8 @@ def check():
     ca = request.args.get('ca')
     thal = request.args.get('thal')
 
-    return heartDiseaseRecognize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope,
-                                       ca, thal)
+    return jsonify(heartDiseaseRecognize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope,
+                                       ca, thal))
 
 
 @app.route('/add', methods=['GET'])
@@ -47,8 +47,8 @@ def add():
     thal = request.args.get('thal')
     target = request.args.get('target')
 
-    return heartDiseaseBiggerize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal,
-                                target)
+    return jsonify(heartDiseaseBiggerize(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal,
+                                target))
 
 
 app.run()
