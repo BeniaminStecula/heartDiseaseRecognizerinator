@@ -125,7 +125,7 @@ def testAll():
     return
 
 
-# heartDiseaseRecognizeinator(57,1,0,130,131,0,1,115,1,1.2,1,1,3)    # 0
-# heartDiseaseRecognizeinator(57,0,2,130,256,0,0,149,0,0.5,2,0,2)    # 1
-# heartDiseaseBiggerizeinator(666,1,1,120,236,0,1,178,0,0.8,2,0,2,1)
+# heartDiseaseRecognize(57,1,0,130,131,0,1,115,1,1.2,1,1,3)    # 0
+# heartDiseaseRecognize(57,0,2,130,256,0,0,149,0,0.5,2,0,2)    # 1
+# heartDiseaseBiggerize(666,1,1,120,236,0,1,178,0,0.8,2,0,2,1)
 # testAll()
